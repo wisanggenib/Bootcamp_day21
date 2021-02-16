@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Button } from "react-native";
 import { useDispatch, useSelector } from 'react-redux';
-// import { setLogin, login } from "../../features/auth/actions";
+import { cekLogout } from "../../features/auth/actions";
 
 const HomeScreen = () => {
     const dispatch = useDispatch();
@@ -10,11 +10,13 @@ const HomeScreen = () => {
         return state.auth.tempUser;
     });
 
-    console.log('MY TEMP USER', tempUser)
-
+    console.log('Load Home')
     return (
-        <View>
-            <Text>Welcome {tempUser.name}</Text>
+        <View style={{ padding: 10 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <Text>Welcome {tempUser ? tempUser.name : ''}</Text>
+                <Button title='logout' color='red' onPress={() => dispatch(cekLogout())}></Button>
+            </View>
         </View>
     )
 }

@@ -25,10 +25,10 @@ const defaultState = {
 const reducer = (state = defaultState, actions) => {
     switch (actions.type) {
         case SET_LOGIN:
-            return { isLogin: true, tempUser: actions.payload };
+            return { ...state, isLogin: true, tempUser: actions.payload };
             break;
         case LOG_OUT:
-            return { isLogin: false, tempUser: null };
+            return { ...state, isLogin: false, tempUser: null };
             break;
 
         default:

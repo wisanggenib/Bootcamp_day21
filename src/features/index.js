@@ -5,6 +5,7 @@ import authReducer from './auth/reducer';
 
 import loginMiddleware from '../helper/login';
 import cekLoginMiddleware from '../helper/ceklogin';
+import cekLogoutMiddleware from '../helper/logout';
 
 // const logger = (state) => (next) => (action) => {
 //   console.log(`Memanggil ${action.type}`);
@@ -20,6 +21,6 @@ const rootReducer = combineReducers({
 //2.3 initialize store
 const store = createStore(
     rootReducer,
-    applyMiddleware(loginMiddleware, cekLoginMiddleware),
+    applyMiddleware(loginMiddleware, cekLoginMiddleware, cekLogoutMiddleware),
 );
 export default store;

@@ -31,9 +31,6 @@ const loginHelper = ({ dispatch, getState }) => {
                 }
 
                 GetSaveData()
-
-                // console.log(action.payload)
-                // console.log(getState().auth)
             }
 
             // console.log('loginhelper', { action });

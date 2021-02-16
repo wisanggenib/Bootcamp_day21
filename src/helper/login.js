@@ -15,14 +15,15 @@ const loginHelper = ({ dispatch, getState }) => {
         return (action) => {
             // finally, this is where our logic lives for
             // our middleware.
+            console.log(getState().auth)
 
             if (action.type == LOGIN) {
                 const email = action.payload.email
                 const password = action.payload.password
                 if (email) {
+
                     let temp = getState().auth.user
                     let tempPass, tempVal
-
                     temp.map(el => (
                         el.email === email ? tempPass = el.password : el
                     ))
