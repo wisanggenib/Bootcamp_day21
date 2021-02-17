@@ -17,25 +17,21 @@ const loginHelper = ({ dispatch, getState }) => {
                 const AddList = async () => {
                     let oldData = await AsyncStorage.getItem('Todo')
                     let tempData = JSON.parse(oldData)
-                    console.log('this old data', oldData)
                     let newList = []
 
                     if (oldData !== null) {
-                        console.log('do if')
-                        console.log(tempData)
-                        tempData.push({ id: oldData.length + 1, idUser: 1, agenda: 'hi', status: false })
+                        // console.log(tempData)
+                        tempData.push({ id: tempData.length + 1, idUser: 1, agenda: 'hi', status: false })
                         await AsyncStorage.setItem('Todo', JSON.stringify(tempData))
-
+                        dispatch(setToDO(tempData))
                     } else {
-                        console.log('do else')
                         newList.push({ id: 1, idUser: 1, agenda: 'hi agenda baru', status: false })
                         await AsyncStorage.setItem('Todo', JSON.stringify(newList))
-                        console.log(newList)
+                        dispatch(setToDO(newList))
+                        // console.log(newList)
                     }
 
                     // await AsyncStorage.removeItem('Todo')
-                    console.log('proses add')
-                    dispatch(setToDO(newList))
                 }
                 AddList()
 

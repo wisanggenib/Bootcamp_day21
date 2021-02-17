@@ -10,12 +10,13 @@ const reducer = (state = defaultState, actions) => {
     switch (actions.type) {
         case GET_TODO:
             const newList = actions.payload
-            return { isLoading: false, list: newList };
+            return { ...state, isLoading: false, list: newList };
             break;
 
         case SET_TODO:
             const newData = actions.payload
-            return { isLoading: false, list: newData };
+            console.log(newData)
+            return { ...state, isLoading: false, list: newData };
             break;
 
         default:
