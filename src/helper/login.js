@@ -15,7 +15,7 @@ const loginHelper = ({ dispatch, getState }) => {
         return (action) => {
             // finally, this is where our logic lives for
             // our middleware.
-            console.log(getState().auth)
+            // console.log(getState().auth)
 
             if (action.type == LOGIN) {
                 const email = action.payload.email
